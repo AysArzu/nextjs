@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread Operator</title>
+  </head>
+  <body>
+    <h2>Spread Operator</h2>
+
+    <script>
+      // Örnek: Bir dizi içindeki sayıları ayrı ayrı parametre olarak topla fonksiyonuna gönderen kodları yazınız.
+
+      const sum = (n1, n2, n3, n4) => {
+        return n1 + n2 + n3 + n4;
+      };
+
+      let numbers = [65, 75, 15, 22];
+
+      console.log(sum(numbers[0], numbers[1], numbers[2], numbers[3])); // 177
+
+      console.log(sum(...numbers)); // 177
+
+      console.log(...numbers); // 65 75 15 22
+
+      // Sets
+      // Sets ile repeated elemanları array'den çıkarabiliriz.
+      let names = ["Ali", "Ayşe", "Can", "Canan", "John", "Canan", "Ayşe"];
+
+      let namesSet = new Set(names);
+
+      console.log(namesSet); // {'Ali', 'Ayşe', 'Can', 'Canan', 'John'}
+
+      let uniqueNames = [...namesSet];
+
+      console.log(uniqueNames); // ['Ali', 'Ayşe', 'Can', 'Canan', 'John']
+
+      // Spread array birleştirme işlemlerinde de kullanılır.
+
+      let cities = ["İstanbul", "Ankara", "İzmir"];
+
+      cities = ["Bakü", "Bişkek", ...cities, "Berlin"];
+
+      console.log(cities); // ['Bakü', 'Bişkek', 'İstanbul', 'Ankara', 'İzmir', 'Berlin']
+    </script>
+  </body>
+</html>

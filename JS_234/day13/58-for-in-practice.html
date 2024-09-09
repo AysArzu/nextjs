@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for-in pracrice</title>
+</head>
+<body>
+    <h2>for-in practice</h2>
+    <script>
+        
+        // ÖRNEK: İki ayrı dizideki eşleşen indis elemanları birleştirerek ayrı bir diziye  saklayan uygulamayı FOR IN ile yazınız.
+      const firstNames = [
+        "Kerim",
+        "Tarık",
+        "Ezgi",
+        "Kemal",
+        "Irfan",
+        "Ahmet",
+        "Mehmet",
+      ];
+      const lastNames = [
+        "Kara",
+        "Yılmaz",
+        "Öztürk",
+        "Dağdeviren",
+        "Atatürk",
+        "Özcan",
+        "Polat",
+      ];
+
+      const createFullName = (names, surnames) => {
+        let fullNames = [];
+        for (let i in names) {
+          fullNames.push(names[i] + (" " + surnames[i]));
+        }
+        return fullNames;
+      };
+
+      console.log(
+        createFullName(firstNames, lastNames)
+      ); /*
+      (7) ['Kerim Kara', 'Tarık Yılmaz', 'Ezgi Öztürk', 'Kemal Dağdeviren', 
+      'Irfan Atatürk', 'Ahmet Özcan', 'Mehmet Polat']
+      *///length farkli olursa mesela ayse undefined olur.
+    </script>
+  </body>
+</html>

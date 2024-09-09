@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nullish Coalescing</title>
+</head>
+
+<body>
+<h2>Nullish Coalescing</h2>    
+<script>
+   // let user;
+     let user = "Ali";
+    
+    // alert(user == null || user == undefined ? "Bilinmeyen Kisi" : user);
+    alert(user ?? "Bilinmeyen Kisi")
+    // null veya undefined durumlarini kontrol etmek icin Nullish kullanilir.
+    // Eger user varsa user'in degerini yazdirir, 
+    // yoksa ?? operatorunden sonraki degeri yazdirir.
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Practice</title>
+</head>
+<body>
+    <h2>Rest Practice</h2>
+
+    <script>
+
+        // Öğrencinin adını ve soyadı ile belirsiz sayıda notu parametre olarak alan ve notların ortalamasını bulup, öğrenci adı ile birlikte ortalamayı döndüren fonksiyonu yazınız.
+
+        const getAverage = (firstName, lastName, ...notes)=>{
+
+            let total = notes.reduce((sum, not)=> sum + not, 0);
+
+            let average = total / notes.length;
+
+            return `${firstName} ${lastName}, Ortalama: ${average.toFixed(1)}`;
+
+        }
+
+        console.log(getAverage("Ali", "Can", 50, 70, 25)); // Ali Can, Ortalama: 48.3
+        console.log(getAverage("Mola", "Zamanı", 25, 90)); // Mola Zamanı, Ortalama: 57.5
+
+        ///////////////////////////////////////////////
+
+        const multiplication = (a=3, b=9)=>{
+            return a * b;
+        }
+
+        console.log(multiplication(5, 7)); // 35
+        console.log(multiplication(5)); // 45
+        console.log(multiplication()); // 27
+
+    </script>
+</body>
+</html>

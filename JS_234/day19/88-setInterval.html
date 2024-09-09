@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval</title>
+
+    <style>
+        * {
+            margin: 10px;
+        }
+        button {
+            padding: 5px 15px;
+            background-color: greenyellow;
+            border-radius: 3px;
+        }
+        h3 {
+            color: blue;
+        }
+
+        .effect {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interval</h2>
+
+    <button id="btnStart">Start</button>
+    <button id="btnStop">Stop</button>
+
+    <h3 id="message">Merhaba Dünya!</h3>
+
+    <script>
+
+        let x;
+
+        btnStart.onclick = ()=>{
+            if(x) return;
+            x = setInterval(()=> message.classList.toggle("effect"), 800);
+        }
+
+        btnStop.onclick = ()=>{
+            clearInterval(x);
+            x = false;
+        }
+    </script>
+</body>
+</html>

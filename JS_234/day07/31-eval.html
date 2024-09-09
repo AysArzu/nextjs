@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eval</title>
+  </head>
+  <body>
+    <h2>Eval</h2>
+    <input type="text" name="" id="num" />
+    <button onclick="calculate()">Hesapla</button>
+    <div class="result"></div>
+  </body>
+  <script>
+    function calculate() {
+      let num = document.querySelector("#num").value;
+      let result = eval(num).toFixed(2);
+      document.querySelector(".result").innerHTML = `Islemin sonucu: ${result}`;
+    }
+  </script>
+</html>

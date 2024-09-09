@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Every Some</title>
+  </head>
+  <body>
+    <h2>Every Some</h2>
+
+    <script>
+      //every ne işe yarar?
+      //cevap: herhangi bir dizi elemanı true ya da false döndürür.
+      //Fiyatların hepsinin sıfırdan büyük olup olmadığını kontrol ediniz. Negatif fiyat olmamalıdır.
+
+      let prices = [250, 500, 1500, 50, 3000, 20000];
+
+      let checkEvery = prices.every((price) => price > 0); //AND mantığı ile çalışır.
+      console.log(checkEvery); // true
+
+      // and mantığıyla çalışır. bir tanesi sağlamazsa false döndürür.
+   
+   
+   let checkSome = prices.some((price) => price < 0); //OR mantığı ile çalışır.
+   console.log(checkSome); // false
+   
+   
+   </script>
+  </body>
+</html>

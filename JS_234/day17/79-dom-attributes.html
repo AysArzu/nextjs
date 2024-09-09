@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Attributes</title>
+  </head>
+  <body>
+    <h2>DOM Attributes</h2>
+
+    <input type="text" id="identity" />
+    <button disabled id="submit">Submit</button>
+    <p id="message"></p>
+    <!-- default u true undisabled denilince  kirariz-->
+
+    <!--!buttonu disabled yapma islemi **** oninput her karakter girmede harekete gecer-->
+    <script>
+      document.querySelector("#identity").oninput = () => {
+        let identityNo = event.target.value;
+        console.log(identityNo);
+        
+        if (identityNo.length == 11) {
+            //document.querySelector("#submit").removeAttribute("disabled");
+          submit.removeAttribute("disabled");
+          message.innerText='';
+        }else{
+          submit.setAttribute("disabled",true);
+          message.innerText= '11 karakter girmelisiniz.'
+        }
+      };
+      
+        // Her değer girildiğinde function tetiklenip input değerini alır.
+        // Değer uzunluğu 11 ise removeAttribute ile disabled kaldırılınca button aktif hale gelir.
+        // Değer uzunluğu 11 değil ise setAttribute ile disabled attribute'unü buttona ekler.
+    </script>
+  </body>
+</html>

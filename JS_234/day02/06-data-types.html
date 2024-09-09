@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Types</title>
+  </head>
+  <body>
+    <script>
+      var x = 10;
+      console.log(typeof x); //number
+
+      var word = "hello";
+      console.log(typeof word); //string
+
+      var isTrue = true;
+      console.log(typeof isTrue); //boolean
+
+      var max = Number.MAX_SAFE_INTEGER;
+      console.log(max); //9007199254740991
+
+      var k = 65n;
+     //  console.log(k+1);//06-data-types.html:23 Uncaught 
+      console.log(typeof k); //bigint
+
+      var c;
+      console.log(typeof c); //undefined
+
+      var d = null;
+      console.log(typeof d); //object
+
+    
+        // JavaScript data types tanımlamada dinamiktir.
+        // Bir variable'a sonradan bir değer ataması yapıldığında data type'ını kendisi dönüştürür.
+        let n = 7;
+        n = "Hello";
+        console.log(typeof n); // string
+
+        let newVar = "Bu bir cümledir.";
+        newVar = false;
+        console.log(newVar, typeof newVar); // false, boolean
+
+    </script>
+  </body>
+</html>

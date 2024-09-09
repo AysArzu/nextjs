@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Hesap Makinesi</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .calculator {
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 300px;
+            background-color: #f9f9f9;
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding-right: 10px;
+        }
+        .btn {
+            width: 25%;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" id="display" class="display" disabled>
+            <div class="row">
+                <button class="btn btn-primary" onclick="appendNumber('1')">1</button>
+                <button class="btn btn-primary" onclick="appendNumber('2')">2</button>
+                <button class="btn btn-primary" onclick="appendNumber('3')">3</button>
+                <button class="btn btn-danger" onclick="clearDisplay()">C</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" onclick="appendNumber('4')">4</button>
+                <button class="btn btn-primary" onclick="appendNumber('5')">5</button>
+                <button class="btn btn-primary" onclick="appendNumber('6')">6</button>
+                <button class="btn btn-warning" onclick="appendOperator('+')">+</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" onclick="appendNumber('7')">7</button>
+                <button class="btn btn-primary" onclick="appendNumber('8')">8</button>
+                <button class="btn btn-primary" onclick="appendNumber('9')">9</button>
+                <button class="btn btn-warning" onclick="appendOperator('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" onclick="appendNumber('0')">0</button>
+                <button class="btn btn-warning" onclick="appendOperator('*')">*</button>
+                <button class="btn btn-warning" onclick="appendOperator('/')">/</button>
+                <button class="btn btn-success" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function appendNumber(number) {
+            document.getElementById('display').value += number;
+        }
+
+        function appendOperator(operator) {
+            document.getElementById('display').value += ' ' + operator + ' ';
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            let display = document.getElementById('display');
+            display.value = eval(display.value);
+        }
+    </script>
+</body>
+</html>

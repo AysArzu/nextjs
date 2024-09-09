@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <h2>setTimeout</h2>
+
+    <script>
+
+        const sayHello = ()=>{
+            console.log("Hello World");
+        }
+
+        setTimeout(sayHello, 3000); // 3 saniye sonra çalışır
+
+        //sayHello(); // Önce çalışır
+
+
+        let time = setTimeout(()=>{
+            console.log("Merhaba Dünya");
+        }, 4000);
+
+        console.log(time);
+
+        clearTimeout(time); // setTimeout işlemini iptal eder.
+
+
+
+
+    </script>
+</body>
+</html>

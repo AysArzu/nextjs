@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onclick - Onchange</title>
+  </head>
+  <body>
+    <h2>Events</h2>
+    <h2 onclick="sayHello()">Merhaba Dünya</h2>
+
+    <input type="number" name="" id="input1" onchange="myFunction()" />
+    <input type="number" name="" id="input2" onchange="myFunction()" />
+    <script>
+        //h2 tag i tiklaninca calisir
+      function sayHello() {
+        alert("Hello World!");
+      }
+      //  sayHello();
+
+      //input degeri degistirildiginde bu fonksiyon calisir.
+      function myFunction() {
+          //alert("New value: "+input1.value);
+          alert("The new value: " + event.target.value);
+      }
+    </script>
+  </body>
+</html>

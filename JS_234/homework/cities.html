@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Access Methods</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .input-group {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .input-group input {
+        flex: 1;
+      }
+
+      .input-group button {
+        min-width: 100px;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .btn-group .btn {
+        min-width: 100px;
+      }
+
+      .list {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 20px;
+        overflow-y: auto;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .list ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .list ul li {
+        flex: 1 1 calc(20% - 10px); /* 5 sütun düzeni */
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        text-align: center;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group ">
+        <input
+          type="text"
+          id="box"
+          class="form-control"
+          placeholder="Enter City Name"
+        />
+        <button id="add" class="btn btn-primary me-5">Add</button>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="sort">Sort</button>
+      <button class="btn btn-secondary" id="reverse">Reverse</button>
+      <button class="btn btn-warning" id="removeLast">Remove Last</button>
+      <button class="btn btn-primary" id="removeFirst">Remove First</button>
+      <button class="btn btn-danger" id="removeAll">Remove All</button>
+      <button class="btn btn-success" id="mix">Mix</button>
+    </div>
+    <div class="list">
+      <h3>Cities</h3>
+      <ul id="cityList"></ul>
+    </div>
+
+    <script>
+      const cityNameInput = document.querySelector("#box");
+      const addButton = document.querySelector("#add");
+      const sortButton = document.querySelector("#sort");
+      const reverseButton = document.querySelector("#reverse");
+      const removeLastButton = document.querySelector("#removeLast");
+      const removeFirstButton = document.querySelector("#removeFirst");
+      const removeAllButton = document.querySelector("#removeAll");
+      const mixButton = document.querySelector("#mix");
+      const cityList = document.querySelector("#cityList");
+      const cities = [];
+
+      addButton.addEventListener("click", addCity);
+      sortButton.addEventListener("click", sortCities);
+      reverseButton.addEventListener("click", reverseCities);
+      removeLastButton.addEventListener("click", removeLastCity);
+      removeFirstButton.addEventListener("click", removeFirstCity);
+      removeAllButton.addEventListener("click", removeAllCities);
+      mixButton.addEventListener("click", mixCities);
+
+      function capitalizeFirstLetter(str) {
+        if (str.length === 0) return str;
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      }
+
+      function addCity() {
+        const regex = /^[a-zA-Z\s]+$/;
+        const cityName = capitalizeFirstLetter(cityNameInput.value.trim());
+        if (cityName !== "" && regex.test(cityName)) {
+          if (!cities.includes(cityName)) {
+            cities.push(cityName);
+            updateCityList();
+          } else {
+            alert("This city is already in the list.");
+          }
+          cityNameInput.value = "";
+          cityNameInput.focus();
+        } else {
+          alert("City name can only contain letters and spaces.");
+          cityNameInput.value = "";
+          cityNameInput.focus();
+        }
+      }
+
+      function sortCities() {
+        cities.sort();
+        updateCityList();
+      }
+
+      function reverseCities() {
+        cities.reverse();
+        updateCityList();
+      }
+
+      function removeLastCity() {
+        cities.pop();
+        updateCityList();
+      }
+
+      function removeFirstCity() {
+        cities.shift();
+        updateCityList();
+      }
+
+      function removeAllCities() {
+        cities.length = 0;
+        updateCityList();
+      }
+
+      function mixCities() {
+        for (let i = cities.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [cities[i], cities[j]] = [cities[j], cities[i]];
+        }
+        updateCityList();
+      }
+
+      function updateCityList() {
+        cityList.innerHTML = cities.map((city) => `<li>${city}</li>`).join("");
+      }
+    </script>
+  </body>
+</html>

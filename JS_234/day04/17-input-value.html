@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Input Value </title>
+</head>
+<body>
+   <h2>Adınız:</h2> 
+
+<input type="text" name="isim" id="input" value="Ayse Arzu">
+
+<h2 id="message"></h2>
+
+
+<script>
+let inputValue=document.querySelector("#input").value;
+document.querySelector("#message").innerHTML=inputValue;//yada
+message.innerHTML=`Merhaba <i>${inputValue}</i>`;//Marhaba Ayse Arzu ismi italik yazar.
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage API</title>
+  </head>
+  <body>
+    <h2>Storage API</h2>
+    <p id="counter"></p>
+    <script>
+      console.log(Number(localStorage.getItem("counter"))); /* 0 */
+      let counterValue = Number(localStorage.getItem("counter"));
+      localStorage.setItem("counter", ++counterValue);
+      counter.innerHTML = `Bu sayfayı ${counterValue} defa ziyaret ettiniz.`;
+    </script>
+  </body>
+</html>
+<!-- her browserda ayrı çalışır. aynı browserda her girmemizde counterı arttırır. sadece edge da yada chrome da -->

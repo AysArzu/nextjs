@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debugging</title>
+  </head><!-- satirlari secip kirmizi nokta ile sonra debugging e basiyoruz (bocekli play) 
+  adim adim isaretledigimiz kirmizi noktali break pointler uzerinde inceleme yapiyoruz -->
+  <!-- html sayfasinda bakmak icin sources detip page i aciyoruz ve inceleyecegimiz gunun 
+   html sayfasini acariz incelenecek yerler isaretlenip yapilir-->
+  <body>
+    <h2>Debugging</h2>
+    <button>Click</button>
+
+    <script>
+      document.querySelector("button").addEventListener("click", () => {
+        function sumArray(arr) {
+          try {
+            let sum = 0;
+            for (num of arr) {
+              if (typeof num !== "number") throw new Error("not a number");
+              sum += num;
+            }
+            return sum;
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+        console.log(sumArray([3, 5, '7', 10]));
+      });
+    </script>
+  </body>
+</html>

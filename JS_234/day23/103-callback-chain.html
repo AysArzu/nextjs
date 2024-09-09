@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Chains</title>
+</head>
+<body>
+    <h2>Callback Chains</h2>
+
+    <script>
+
+        const order = (myCallback)=>{
+            console.log("Sipariş verildi.");
+            setTimeout(()=>{
+                console.log("Sipariş hazır.");
+                myCallback();
+            }, 3000);
+        }
+
+
+        const eatDinner = (myCallback)=>{
+            console.log("Yemeğe başladık.");
+            setTimeout(()=>{
+                console.log("Yemek bitti.");
+                myCallback();
+            }, 2000);
+        }
+
+
+        const watchMovie = ()=>{
+            console.log("Film başladı.");
+            setTimeout(()=>{
+                console.log("Film bitti.");
+            }, 1500);
+        }
+
+
+        const eatPopcorn = ()=>{
+            console.log("Patlamış mısır yemeğe başlandı.");
+            setTimeout(()=>{
+                console.log("Patlamış mısır bitti.");
+            }, 1000);
+        }
+
+        /*
+        order();
+        eatDinner();
+        watchMovie();
+        eatPopcorn();
+        */
+
+        // Fonksiyonları belli bir sıraya göre çalışmasına zorlamak için callback chain kullnılır.
+
+        order(()=>{
+            eatDinner(()=>{
+                watchMovie();
+                eatPopcorn();
+            });
+        });
+
+    </script>
+</body>
+</html>

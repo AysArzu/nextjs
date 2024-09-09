@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerText innerHTML</title>
+  </head>
+  <body>
+    <h1>innerText innerHTML</h1>
+
+    <h2>Ayse Arzu</h2>
+    <p></p>
+    <script>
+      var name = document.querySelector("h2").innerText;
+      console.log(name); //Ayse Arzu
+
+      console.log(document.querySelector("p").innerHTML);
+      document.querySelector("p").innerHTML = `Merhaba ${name}`;
+      console.log(document.querySelector("p").innerHTML); //Merhaba Ayse Arzu
+    </script>
+  </body>
+</html>

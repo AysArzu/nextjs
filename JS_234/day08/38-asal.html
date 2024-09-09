@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asal Sayı</title>
+    <style>
+      * {
+        margin-top: 15px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" id="num" />
+    <button onclick="asalSayi()">Asal Mı?</button>
+
+    <script>
+      function asalSayi(sayi) {
+        let num =Number(document.querySelector("#num").value);
+          let counter = 0;
+        if (num >1 && Number.isInteger(num)) {
+             for (let i = 2; i < num; i++) {
+            if (num % i == 0) {
+              counter++;
+              break;
+            }
+          }
+          counter > 0
+            ? alert(num + " asal sayı değildir.")
+            : alert(num + " asal sayıdır.");
+        }else{
+            alert("Lütfen geçerli bir sayı giriniz");
+            }
+
+
+      }
+    </script>
+  </body>
+</html>

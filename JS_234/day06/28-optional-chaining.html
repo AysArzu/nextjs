@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optional Chaining</title>
+</head>
+<body>
+    <h2>Optional Chaining</h2>
+    <h3 id="name"></h3>
+    <h3 id="age"></h3>
+    <h3 id="address"></h3>
+
+    <script>
+        let user ={
+            name:"Ayse",
+            age:25,
+            address:{
+                city:"Istanbul",
+                country:"Turkey"
+            }
+        }
+        document.querySelector("#name").innerHTML=user.name;
+        document.querySelector("#age").innerHTML=user.age;
+        document.querySelector("#address").innerHTML=user.address?.country;
+        //address objesi olmadıgından undefined döndürür eger address objesi varsa country degerini döndürür
+        //yazmasaydik kod akisi dururdu.
+    </script>
+</body>
+</html>

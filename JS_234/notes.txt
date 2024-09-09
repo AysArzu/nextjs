@@ -1,0 +1,298 @@
+*** eger nasil gorunuyor diye live serverde actigimiz pencere edge de yada
+baska browserda aciliyorsa sunu yapmaliyiz:
+live server eklentisine git settinge bas extension setting 
+Live Server › Settings: Chrome Debugging Attachment'e gel ve
+bunu yaz =>  "liveServer.settings.AdvanceCustomBrowserCmdLine": "chrome",
+
+*** html classina gelip sag tiklayip Reveal in File Explorer dersen dosya nereye yuklu onu gorursun
+**https://docs.emmet.io/cheat-sheet/ kisa yollari gosteren sheet
+
+Case sensitive dir
+satir sonuna genellikle ; konur
+identifier'lar harf _ veya $ ile baslanabilir.Rakam olabilir ama basinda rakam olmaz(sayi1 olur 1sayi olmaz)
+identifier'lar camelCase ile yazilir
+ingiliz alfabesinde olmaan karakterler kullanilmaz(ç,ö,ğ,ı,ş,ü)
+if, true, else vb. ifadeler degisken ismi olarak kullanilmaz.
+boşluk  ve ozel karakterler(?,%,!,.,+ vb) kullanilmaz. 
+
+    console.log ta kullanici birsey gormez sadece console da biz goruruz
+    console.log ("Hello world");
+    console.warn("Sayilar esit"); console'a sari yazdirir basinda unlem isareti olur
+    console.error(ID alani bos birakilamaz); kritik hata olabilecek seylerde bizim ya da 
+                   developerin dikkatini cekmek icin kullanilir kirmizi yazdirir
+
+alert=> kullaniciya bilgi vermek
+confirm=>kullaniciya soru sormak  icin
+prompt=> kulanicidan bilgi almak icin kullanilir
+
+<script> icine yazacaksan eger bu sekilde olur
+    // yorum satiri
+
+    /*
+     coklu yorum satiri ******** 
+     */
+
+</script>
+
+js de degisken veya sabit tanimlamak icin 3 farkli ifade kullanilir
+
+   var  =>DEGISKEN   
+   let(ES6)=>DEGISKEN 
+   const(ES6) =>SABIT- Degistirilemeyen
+
+
+DATA VERI TIPLERI
+String =>    var ad = "ayse";
+number =>    var yas = 18;
+BigInt =>    var x = 100n; ES11
+Boolean =>   var retired = true;
+Symbol =>    var id= Symbol(); ES6
+Undefined => var isim;
+null =>      var isim = null;
+ sadece bu non-primitive Object => array, object
+
+
+typeof methodu degiskenin turunu ogrenmemize yardimci olan methoddur
+ 
+String var ad = "ayse";
+console.log(degisken); ==> ayse
+console.log(typeof(degisken)); ==> String yazar
+
+** var ile degisken tanimlandiginda ayni isimde baska bir degisken tanimlamasina izin verir
+
+const veya let ile degisken tanimlandiginda ayni scope icinde ayni isimde baska bir degisken tanimanmasina izin vermez.
+const degisken = "Ayse";
+console.log(degisken); //Ayse
+console.log(typeof(degisken)); //String
+
+var degisken =50;  ====>>> bu satirda hata verir
+console.log(degisken); 
+console.log(typeof(degisken));
+ ****0, null, undefined , NaN ve "" Javascript tarafindan false olarak kabul edilir.
+      diger degerler Boolean'a cevrildiginde true olarak kabul edilir.
+
+
+OPERATORLER
+1)Aritmetik operatorler 
+2)Karsilastirma operatorleri 
+3)Mantiksal operatorler 
+4)Atama operatorleri 
+
+
+1) Aritmetik operatorler : + - *(carpma) /(bolme) ** (ust alma) %(modulus-kalan bulma) ++(bir arttirma) --(bir azaltma)
+
+2)Karsilastirma operatorleri :== veya ===, != veya !==, < > <= >=
+karsilastirma tiplerinin sonucu herzaman true veya false tur
+
+3)Mantiksal operatorler  and(&&)  or(||) not (!)
+
+4)Atama operatorleri  = += -= *= /= **=(sayinin karesini alip atama) %=(sayinin modunu alma) &=(ve islemi) |=(veya islemi)
+
+innerText =>bir elementin icindeki yaziyi okumak veya degistirmek icinn kullanilir
+innerHTML=>Bir elementin icindeki HTML i okumak veya degistirmek icin kullanilir
+classList=> bir elementin sahip oldugu class lari manipule etmek icin kullanilir
+   add => elemente class eklemek icin
+   remove => elementin sahip oldugu class i kaldirmak icin kullanilir
+
+value => bir form elemaninin degerini okumak yada degistirmek icin kullanilir   
+
+OPTIONAL CHAINING
+***Object yapilarinda object in olayan elemanlarina erisim saglandiginda hata almamak icin kullanilir!!! 
+
+  const user={
+    name :'John,
+    age:23
+  }
+console.log(user?.salary);
+bu ? sayesinde hata firlatmasi ve kodun durmasi engellenir.
+
+NULLISH COALIESCING
+Sadece NULL ve undefined durumlarini kontrol ederek buna gore aksiyon almamizi saglayan bir operatordur.
+Eger ilk parametre null veya undefined degilse ilk parametreyi, yoksa ikinci parametreyi dondurur. 
+const user;
+alert(user ?? "Anonymous"); => nullish coalescing
+ 
+ const user;
+ alert(user !== null && user !== undefined ? user : "Anonymous"); => classic ternary
+DONGULER
+Tekrarlanan islemleri daha az kod yazarak gerceklestirmek icin donguler kullanilir.
+  *for   
+  *while    
+  *do-while   donguleri vardir.
+
+FONKSIYON NEDIR?
+Programda tekrarli calistirilabilecek alt programlara denir.
+*kod tekrarinin onune gecer (DRY).
+*problemler kucuk parcalara ayrilarak daha kolay cozulur.
+*parcalara ayrilan sorun daha fazla insan tarafindan ayni anda cozulur.
+*hata ayiklamak daha kolay olur.
+
+***icinde import olan bir js dosyasini html de kullanmak istiyorsak type="module" ile sorun cozulur.
+
+SCOPE
+Function scope: fonksiyonlarin icinde tanimlanan degiskenler sadece fonksiyon icinde gecerlidir.
+Global scope:Her yerden erisilebilen degiskenler en tepede tanimlanir.
+Block scope: Sadece tanimlandigi blok icinde(if,for, while...) gecerlidir.ES6
+var icin block scope yok Function ve Global scope var. onlar sadece let ve const icin gecerli.
+degiskene hicbir tanimlama yapmazsak o degiskeni js default olarak var kabul eder.
+
+Event Handlers
+bir programda olabulecek olaylarin yakalanmasi ve olay gerceklestiginde
+ istenilen kodlarin calistirilmasi islemine event handling denir. Bu islemi yapan kodlara da event handler denir.
+event triggering: bir butona tiklanmasi hadisesi yani tetiklenmesi yada fareyle yaptigi herseydir
+event throwing: olayin firlatilmasi
+event listening: olan olayin yakalanmasi. kullaniciyi dinliyoruz ve listening ile bunu yakaliyoruz. dinleyen sistem kuruyoruz
+event handling:listening e karsi gelen kodlarin yazilmasi.
+
+Number(x) -> x ifadesini numeric tipe cevirir. fakat bosluklari sifir olarak kabul eder.
+parseFloat(x) -> x ifadesini decimal(ondalikli) tipe cevirir.Bosluklar NaN kabul edilir.
+parsInt(x) -> x ifadesini integer(tam sayinin) tipe cevirir. Bosluklar NaN kabul edilir.
+ 
+ Array Methods
+ Dizi elemanlarina ulasmak, bunlari manipule etmek veya iterasyon yapmak icin cesitli hazir methodlar vardir.
+
+ i)mutator Methods: Dizi icerigini degistirilmesini saglar
+            push:dizinin sonuna bir veya daha fazla eleman ekler ve yeni eleman sayisini dondurur.
+            pop:dizin son elemanini diziden siler ve bu elemani dondurur
+            shift:dizin ilk elemanini diziden siler ve bu elemani dondur
+            unshift: dizinin ilk indeksine yeni bir eleman ekler ve dizinin yeni eleman sayisini dondurur.
+            sort:diziyi yukselen sirada siralar
+            reverse:dizinin elemanlarini tersten siralar.
+            splice: dizinin iceriklerini yeni ogeler ekleyerek mevcut ogeleri silerek gunceller.
+ ii)access methods: Dizi elemanlarina erismek icin kullanilir.
+ iii)iterator methods: Dizi elemanlarini dongu yoluyla dolasmak icin kullanilir
+
+ Access Methods
+
+ concat: Dizi ile bir baska diziyi veya degri birlestirerek yeni bir dizi dondurur.
+ includes:Dizinin belirtilen bir elemani icerip icermedigine bakar. Eger iceriyorsa true, icermiyorsa false dondurur.
+ indexOf:Belirtilen elemanin dizide ilk goruldugu indeks bumarasini dondurur.
+ lastIndexOf:Belirtilen elemanin dizide goruldugu en son indeks numarasini dondurur, bulamazsa -1 dondurur.
+ join:Bir dizi icerisinde yer alan butun elemanlari birlestirerek String bir ifade olarak geri dondurur.
+ toString:Dizinin icerisindeki elemanlari tek bir String olarak dondurur.
+ slice:Bir dizinin elemanlarini belirtilen baslangic ve bitis indeksine gore kopyasini olusturarak dondurur.
+
+iteration:
+for in: for dongusunu kisaltilmisidir. (sayac ve kosul kullanmaya gerek yok) dizi ve nesnelerin iterasyonu icin gelistirilmis
+degisken icine otomatik olarak elemanin indisi gelir.
+
+for of:for in e gore daha genis kullanim alani vardir.Dizi string gibi bircok veri yapisinda kullanilabilir.
+degisken icine otomatik olarak elemanin degeri gelir.
+
+for each:for of dongusune benzer. Sadece dizilerde calisir. For of'tan sonra populerligini yitirmeye baslamistir.
+map: Mevcut dizi icinde iterasyon yapip orjinal  dizinin kopyasi uzerinde elemanlarinin degerlerini degistirmeyi saglar. 
+     Degisiklik yapilmis diziyi geri verir. Map methodu orijinal dizii degistirmez.
+
+filter:Mevcut bir dizi icinde iterasyon yapip orjinal dizin kopyasi uzerinde filtreleme yapar.Filtrelenmis diziyi geri verir
+ Map methodu orijinal diziyi degistirmez.
+
+ reduce: Mevcut dizi icinde iterasyon yapip yapilan islemlere gore tek bir deger hesaplanmis deger dondurur
+
+ dizi.reduce((total , x)=> total + x, 0); total son deger, x dizi elemani, 0 ilk deger.
+
+ every: Mevcut dizi icinde elemanlarin istenilen kriteri saglayip saglamadigini dondurur.
+       Sagliyorsa true, saglamiyorsa false doner.(and operatoru gibi)
+       dizi.every((item)=>item>13); elementlerin hepsi true ise true doner bir tane false varsa false doner.
+
+ some:Mevcut dizi icinde en az bir elemanin istenilen kriteri saglayip saglamadigini dondurur.
+     Sagliyorsa true, saglamiyorsa false doner.(or operatoru gibi)
+      dizi.some((item)=>item>13); elementlerin sadece biri true ise true doner.
+
+
+ DOM(Document Object Model) dokumanlarinin stillerinin yapisinin iceriginin erisilmesine ve
+   guncellenmesine olanak saglayan bir nesne modelidir
+    bir web sayfasi yuklendiginde tarayici, ilgili HTML  sayfasinin DOM'unu olusturur.
+   Dom agac yapisi ise HTML dosyasi icerisinde bulunan tum nesnelerin hiyerarsik bir bicimde gosterimidir.
+   Objects: HTML elemanlari
+  Properties: HTML elemanlarinin ozellikleri( attribute)
+  Methods: HTML elemanlarina erismeyi saglayan methodlar
+  Events: HTML elemanlari uzerinde gerceklesen olaylar
+
+ DOM'a erisim
+    querySelector:Bir elemani id, class, ozellik, tur ve degere gore secmek icin kullanilir.
+    getElementById: Bir elemani id sinden bulur
+    getElementsByTagName: Bir elemani Tag(Etiket) adina gore bulur.
+    getElementsByClassName:Bir elemani Class(sinif) adina gore bulur.
+                    Eslesen ilk elemani secer.
+   querySelectorAll:Bir elemani id, class, ozellik, Tur ve degere gore secmek icin kullanilir.
+                    Eslesen elemanlarin listesini dondurur.
+   closest:En yakin elemani secer. yukari dogru (parent'a dogru) hareket eder.
+
+   children:Bir elementin cocuklarini secer.
+
+   firstElementChild,
+   lastElementChild: Bir elementin ilk cocugunu veya son cocugunu secer.
+
+   parentElement:Bir elemanin parent'ini secmek icin kullanilir.
+
+   nextElementSibling,
+   previousElementSibling:Bir elemanin onceki veya sonraki kardesini (ayni seviyede) secmek icin kullanilir.
+
+   DOM guncellenme;
+   innerText:Bir elemanin icindeki metni getirir veya icine metin yerlestirir.
+   innerHTML:Bir elemanin icindeki html'i getirir veya icine HTML yerlestirir.
+   textContent:innerText ile aynidir. Tek farki stil ozelliklerinden dolayi gizlenmis olan textleri de getirir.
+   classList:Bir elemanin class listesine erisim saglar.
+        add('class'):classList'e bir class ekler.
+        remove('class'):classList'teki bir classi siler.
+        toggle('class'):classList'te yoksa class'i ekler, varsa class'i siler.
+        contains('class'):classList'te var olan bir class'in olup olmadigini kontrol eder.
+        replace('class1', 'class2'):classList'teki class1'i siler, yerine class2'yi koyar.
+ attributelere erisme:
+ getAttribute('attribute'):Bir elemanin icine metin yerlestirir.
+ setAttribute('attribute','value'):Bir elemana attribute ekler/degistirir.
+ removeAttribute('attribute'):Bir elemanin attribute'unu siler
+ attributes:Bir elemanin tum attributelarini cekebiliriz.
+ createElement('h1'):Yeni bir element olusturur. Document objesinin bir methodudur.
+ appendChild(element):Bir elemana baska bir eleman ekler
+ append(element,"metin"):Bir elemanin icinde en sona baska bir elemani veya text'i ekler.
+                         Tek seferde birden fazla ekleme yapabilir.
+  prepend(element,"metin"):Bir elemanin icinde en basa baska bir elemani veya text'i ekler.Tek seferde birden fazla ekleme yapabilir
+  remove():Bir elemani siler.
+
+  Error handling
+  Hata olmasi muhtemel  kodlarda hataların programın akışını engellememesini sağlamak ve 
+  kullanıcıya daha kontrollü ve anlaşılır uyarlar vermek amacı için yapılan işlemdir.
+  Genellikle kullanıcıdan bilgi alınırken veya API dan bilgi çekerken kullanılır.
+  try{
+    Hata olması beklenen kodlar buraya yazılır
+  }catch(ex) {
+      try bloğunda bir hata olduğunda program akışı catch bloğuna geçer 
+      ve hata ile ilgili bilgi ex object içinde bulunur
+  }finally{
+    Hata olsa da olmasa da çalıştırılan bir block'tur. Kullanılması zorunlu değildir.
+  } 
+  Debugging
+  Programdaki hataların ayıklanması işlemine debugging denir.
+  Debugging için chrome developer tools kullanılabileceği gibi VScode gibi programlardaki debugger da kullanılanilir.
+*Programın işleyişini belli bir noktada kesmek için breakpointler kullanılır.
+*Program  akışı o noktaya geldiğinde kesilecek ve programın adım adım çalıştırılabilmesi için debugging başlayacaktır.
+*Breakpoint eklemek için satır numaralarının sol tarafındaki boşluğa tıklanır. Kırmızı noktalar breakpointleri temsil eder.
+soldaki Run and Debug a basip create a launch.json file a basarsan web app (chrome) u secersen sana vscode adinda package acar.
+icine de launch.json file i acar. js uzantili filedan satir secerek debug yapmaya baslarsin.
+sayfanin uzerinde continue step over, step into, step out, restart, stop secenekleri var.
+
+TIMEOUT
+Gecikmeli olarak çalışması istenilen kodlar, timeout oluşturularak ve belli bir gecikme zamanı belirlenerek çalışırılabilir.
+setTimeout(()=>{
+//setTimeout methodu ile bir zamanlayici oluşturulur
+Gecikme zamanı ms cinsinden tanımlanır.
+}, 500);
+clearTimeout() methodu ile timer durdurulabilir.
+
+INTERVAL:
+Belli periyotlarla çalışması istenilen kodlarö interval oluşturularak ve belli bir zaman belirlenerek çalışırılabilir.
+setInterval(()=>{
+  Belirli aralıklarla çalışacak kodlar buraya yazılır
+  },500);   şeklindedir.
+
+  clearInterval() methodu ile timer durdurulabilir
+
+  Debugging:
+  Programdaki  hataların ayıklanması işleminde debugging denir. 
+  Debugging için chrome developer tools kullanılabileceği gibi 
+  Vscode gibi programlardaki debugger da kullanılabilir.
+  
+  Web Storage API:
+  Frontend tarafında bilgi saklamak için  kullanılır.
+  

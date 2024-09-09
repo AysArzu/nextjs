@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Declaration - Expression - Arrow Functions</title>
+  </head>
+  <body>
+    <h2>Declaration - Expression - Arrow Functions</h2>
+
+    <script>
+      declarationFunction(); //fuction declaration tanimlandigi satirin uzerinde cagrilabilir. Buna hoisting ozelligi denir.
+
+      function declarationFunction() {
+        console.log("Bu function declaration function'dir.");
+      }
+      declarationFunction();
+
+      ///////////////////////////////
+      //expressionFunc();// function expression tanimlandigi satirin uzerinde cagirilamaz. hoisting ozelligi yoktur. hata verir.
+      var expressionFunc = function () {
+        console.log("Bu function expression function'dir.");
+      };
+
+      //////////////////////////////////////////////////
+
+      // arrowFunc(); arrow function tanimlandigi satirin uzerinde cagrilamaz.
+      let arrowFunc = () => {
+        console.log("Bu function arrow function'dir.");
+      };
+      //   let arrowFunc = () => console.log("Bu function arrow function'dir."); seklinde de kullanilir.
+    
+      arrowFunc();
+    </script>
+  </body>
+</html>

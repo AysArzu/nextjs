@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Practice</title>
+  </head>
+  <body>
+    <h2>Map Practice</h2>
+
+    <script>
+      //ÖRNEK: Belirtilen dizideki tum isimleri Büyük harfe dönüştüren uygulamayı yazınız.
+
+      let cities = [
+        "istanbul",
+        "ankara",
+        "izmir",
+        "antalya",
+        "samsun",
+        "bursa",
+      ];
+      let upperCities = cities.map((city) => city.toUpperCase());
+      console.log(upperCities);
+
+      //(6) ['ISTANBUL', 'ANKARA', 'IZMIR', 'ANTALYA', 'SAMSUN', 'BURSA']
+
+      /////////////////////////////////////////////////////////////////////////////////////////
+
+      // tlPrices dizisindeki fiyatların Euro ve dolar karşılıklarını  hesaplatarak yeni bir diziye kaydediniz.
+
+      const euro = 36.5;
+      const dolar = 33.2;
+      const tlPrices = [1000, 1500, 1000, 500, 800];
+
+      let convertEuro = tlPrices.map((price) => (price / euro).toFixed(2)); //['27.40', '41.10', '27.40', '13.70', '21.92']
+
+      let convertDolar = tlPrices.map((price) => (price / dolar).toFixed(2)); // ['30.12', '45.18', '30.12', '15.06', '24.10']
+
+      console.log(convertEuro);
+      console.log(convertDolar);
+    </script>
+  </body>
+</html>
