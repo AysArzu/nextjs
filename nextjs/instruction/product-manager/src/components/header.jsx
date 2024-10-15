@@ -4,15 +4,15 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import menuItems from "@/helpers/data/main-menu.json";
 import Image from "next/image";
+import { UserMenu } from "./user-menu";
 
-export const Header = () => {
+export const Header = ({children}) => {
 
-	console.log("Hello header")//client side olunca yazar terminalde
 	return (
 		<Navbar expand="lg" className="bg-dark" data-bs-theme="dark" collapseOnSelect>
 			<Container>
 				<Navbar.Brand href="/" as={Link}>
-				<Image src="/images/logo.png" alt="cosmo shop" width={250} height={40} />
+					<Image src="/images/logo.png" alt="Cosmo Shop" width={250} height={40}/>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
@@ -28,6 +28,9 @@ export const Header = () => {
 							</Nav.Link>
 						))}
 					</Nav>
+
+					{children}
+
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

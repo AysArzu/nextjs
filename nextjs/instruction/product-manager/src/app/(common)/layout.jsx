@@ -1,16 +1,19 @@
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
-import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { UserMenu } from "@/components/user-menu";
+import React from "react";
+import { Container } from "react-bootstrap";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
-        <Header/>
-        <Container>{children}</Container>
-        <Footer/>
+      <Header>
+        <UserMenu />
+      </Header>
+      <Container>{children}</Container>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
